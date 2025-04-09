@@ -1,0 +1,1 @@
+# Temporal-Attention-Driven-Kernel-Norm-Integration-Network-for-Fault-Diagnosis
