@@ -1,6 +1,0 @@
-Task,Loc,Basis,AdaBN,MK-MMD Max,MK-MMD Mean,JMMD Max,JMMD Mean,LJMMD Max,LJMMD Mean,CORAL Max,CORAL Mean,DANN Max,DANN Mean,CDAN Max,CDAN Mean,NWD Max,NWD Mean
-Source,,,,Max,Mean,Max,Mean,Max,Mean,Max,Mean,Max,Mean,Max,Mean,Max,Mean
-0_to_1,Best,,,,,,,,,,,47.8,43.02,,,,
-0_to_1,Last,,,,,,,,,,,46.92,40.47,,,,
-1_to_0,Best,,,,,,,,,,,50.0,43.05,,,,
-1_to_0,Last,,,,,,,,,,,47.36,41.82,,,,
