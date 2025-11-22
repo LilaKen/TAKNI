@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
 # 设置全局字体为 Times New Roman
 plt.rcParams['font.family'] = 'Times New Roman'
 
