@@ -2,3 +2,7 @@
 *.log
 *.pdf
 *.json
+*.csv
+*.mat
+*.doc
+*.txt
