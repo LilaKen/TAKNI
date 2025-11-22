@@ -1,0 +1,34 @@
+#!/bin/bash
+# CUDA_VISIBLE_DEVICES 和基础命令
+CUDA_DEVICE=2
+BASE_CMD="nohup python train_advanced.py --model_name \"cnn_features_1d\" --cuda_device 0 --data_name \"PHMFFT\" --data_dir \"./dataset/PHM2009\" --last_batch True --distance_metric True --distance_loss \"NWD\" "
+
+# 定义 transfer_task 的所有组合（移除 [0],[1] 和 [0],[2]）
+TRANSFER_TASKS=(
+    "[0],[1]" "[1],[0]"
+    "[0],[2]" "[2],[0]"
+    "[0],[3]" "[3],[0]"
+    "[1],[2]" "[2],[1]"
+    "[1],[3]" "[3],[1]"
+    "[2],[3]" "[3],[2]"
+)
+
+# 循环遍历 seed 值和 transfer_task 组合
+for seed in {2023..2027}; do
+    for transfer_task in "${TRANSFER_TASKS[@]}"; do
+        # 设置日志文件名，包含当前 seed 和 transfer_task
+        LOG_FILE="train_log_seed_${seed}_task_${transfer_task//,/}_$(date +%Y%m%d%H%M%S).out"
+
+        # 组装完整的命令
+        FULL_CMD="export CUDA_VISIBLE_DEVICES=${CUDA_DEVICE} && ${BASE_CMD} --seed ${seed} --transfer_task ${transfer_task} > ${LOG_FILE} 2>&1 "
+
+        # 打印当前执行的命令（可选）
+        echo "Running with seed=${seed}, transfer_task=${transfer_task}, log file: ${LOG_FILE}"
+
+        # 执行命令
+        eval ${FULL_CMD}
+	wait
+    done
+done
+
+echo "All jobs have been submitted."
