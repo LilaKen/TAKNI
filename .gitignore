@@ -1,8 +1,88 @@
-*.pth
+# 忽略所有内容
+*
+
+# 除了 .gitignore 本身
+!.gitignore
+
+# 保留所有 Python 文件（后续会排除特定目录）
+!*.py
+
+# 保留所有 Shell 脚本文件（后续会排除特定目录）
+!*.sh
+
+# 保留主要的文档文件
+!README.md
+!LICENSE
+!TAKNI_results.pdf
+
+# 保留配置文件
+!.env
+
+# 忽略与 diffusion 相关的所有目录
+/Diffusion/
+/DiffusionFreeGuidence/
+
+# 忽略与 LLM 相关的目录
+/facult_to_llm/
+
+# 忽略统计文件
+statistic.py
+/ablation/statistic.py
+/checkpoint/statistic.py
+/output/statistic.py
+
+# 忽略其他指定的文件和目录
+check_python_path.py
+/Sampledsignal/
+/output/
+/ablation/
+/checkpoint/
+
+# 忽略可视化目录
+/visual/
+/visual/*/
+
+# 忽略 .sh 文件
+*.sh
+
+# 保留各个目录中的 Python 文件（除了被排除的目录）
+!/dataset_diffusion/
+!/dataset_diffusion/*
+!/datasets/
+!/datasets/*
+!/loss/
+!/loss/*
+!/models/
+!/models/*
+!/transcal/
+!/transcal/*
+!/utils/
+!/utils/*
+!/optim/
+!/optim/*
+
+# 忽略一些常见的不需要的文件类型
 *.log
-*.pdf
-*.json
-*.csv
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# 忽略可能存在的数据文件
 *.mat
-*.doc
-*.txt
+*.csv
+*.xlsx
+*.xls
+*.dat
+
+# 保留项目根目录的主要执行文件（除了被排除的）
+!Main_Diffusion.py
+!Scheduler.py
+!train_advanced.py
+!train_advanced_ts.py
+!train_base.py
+
+# 保留数据集目录结构但不深入内容（除非是.py文件）
+!/dataset/
+!/dataset/**/
+!/dataset/**/*.py
