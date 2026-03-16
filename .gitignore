@@ -42,6 +42,10 @@ visual.py
 # 忽略 .sh 文件
 *.sh
 
+# 允许 assets 目录及其内容
+!/assets/
+!/assets/*
+
 # 忽略各个目录中的 Python 文件（除了被排除的目录）
 !/dataset_diffusion/
 !/dataset_diffusion/*
