@@ -2,13 +2,7 @@
 
 ## Overview
 
-This repository contains the source code and supplementary materials for the paper titled "TAKNI: Temporal Attention-Driven Kernel Norm Integration Network for Fault Diagnosis". 
-
-TAKNI (Temporal Attention-Driven Kernel Norm Integration Network) is an advanced method for cross-working-condition fault diagnosis that combines two key innovations: a probabilistic sparsified temporal attention mechanism and Wasserstein distance-based distribution alignment optimization. The Temporal Attention Module (TAM) dynamically identifies long-term dependencies and important time points in time-series data, enhancing the discriminability of extracted features. The Multi-Scale Kernel Wasserstein Module (MSKWM) optimizes the alignment between source and target domain distributions, particularly improving classification accuracy for minority classes in imbalanced scenarios.
-
-## Paper Abstract
-
-In real industrial environments, changes in operating conditions such as load and speed significantly alter data distributions, adversely affecting fault diagnosis model performance. For example, a model trained under specific working conditions often performs poorly or even fails completely when applied to different conditions. This issue, known as the cross-domain problem, presents a major challenge in industrial fault diagnosis. Additionally, imbalanced class distributions severely degrade classification performance for minority classes, further limiting the practicality of these models. To address these challenges, this study proposes a discriminative model-based method for cross-working-condition fault diagnosis. The proposed approach introduces two key innovations: a probabilistic sparsified temporal attention mechanism and Wasserstein distance-based distribution alignment optimization. The Temporal Attention Module (TAM) dynamically identifies long-term dependencies and important time points in time-series data, enhancing the discriminability of extracted features. The Multi-Scale Kernel Wasserstein Module (MSKWM) optimizes the alignment between source and target domain distributions, particularly improving classification accuracy for minority classes in imbalanced scenarios. By combining these techniques, the proposed algorithm achieves exceptional adaptability and robustness across various industrial scenarios. Experiments on five publicly available datasets confirm its state-of-the-art performance, providing an effective solution for cross-working-condition fault diagnosis.
+This repository contains the source code and supplementary materials for the paper titled "TAKNI: Temporal Attention-Driven Kernel Norm Integration Network for Fault Diagnosis".
 
 ## Key Contributions
 
@@ -30,6 +24,25 @@ The TAKNI model demonstrates exceptional performance across multiple datasets in
 
 Detailed experimental results are available in the TAKNI_results.pdf file included in this repository.
 
+## TAKNI_results.pdf Content Preview
+
+The TAKNI_results.pdf file contains comprehensive experimental results from the paper, including:
+
+- Performance comparisons across different datasets (CWRU, JNU, PHM2009, PU, and SEU)
+- Radar charts showing mean accuracy of the best models for each method
+- Visualizations comparing time-domain and frequency-domain tasks
+- Ablation studies demonstrating the impact of removing the MSKWM and TAM modules
+- Confusion matrices for classification results across different bearing fault datasets
+- T-SNE visualizations of classification results across different bearing fault datasets
+- Detailed tables showing results from ablation studies on each dataset
+
+## Visual Results
+
+![TAKNI Results Page 1](./assets/takni_results_page_1.png)
+![TAKNI Results Page 2](./assets/takni_results_page_2.png)
+![TAKNI Results Page 3](./assets/takni_results_page_3.png)
+![TAKNI Results Page 4](./assets/takni_results_page_4.png)
+
 ## Repository Structure
 
 ```
@@ -49,6 +62,7 @@ TAKNI/
 ├── Scheduler.py              # Training schedulers
 ├── train_*.py                # Training scripts
 ├── *.sh                      # Shell scripts for running experiments
+├── assets/                   # Image assets
 └── TAKNI_results.pdf         # Detailed experimental results
 ```
 
@@ -59,19 +73,6 @@ The project is built using Python and PyTorch. Specific dependencies are documen
 ## Usage
 
 See the individual script files and shell scripts for running the experiments described in the paper.
-
-## License
-
-This project is licensed under the terms provided in the LICENSE file.
-
-## Citation
-
-If you use this code or reference our results in your research, please cite our paper:
-
-```
-TAKNI: Temporal Attention-Driven Kernel Norm Integration Network for Fault Diagnosis
-Peijian Zeng, Junhao Chen, Aimin Yang
-```
 
 ## Acknowledgments
 
