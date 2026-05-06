@@ -7,13 +7,14 @@ This script is intended for the revision response. It reports:
 2) theoretical dominant attention MACs, and
 3) measured inference time.
 
-By default, it randomly selects two datasets from the five datasets used in the
-paper, tries to load one real batch for each selected dataset, and falls back to
-synthetic inputs with the same signal length if local dataset files are absent.
+By default, it benchmarks all five datasets used in the paper, tries to load one
+real batch for each selected dataset, and falls back to synthetic inputs with the
+same signal length if local dataset files are absent.
 
 Example:
     python benchmark_tam_efficiency.py --device cuda --batch-size 64
     python benchmark_tam_efficiency.py --datasets CWRU PU --data-root dataset
+    python benchmark_tam_efficiency.py --num-datasets 2
     python benchmark_tam_efficiency.py --synthetic-only
 """
 
@@ -204,8 +205,8 @@ def parse_args():
     parser.add_argument(
         "--num-datasets",
         type=int,
-        default=2,
-        help="Number of datasets to randomly select when --datasets is omitted.",
+        default=None,
+        help="Randomly select this many datasets when --datasets is omitted. By default, all five datasets are used.",
     )
     parser.add_argument("--seed", type=int, default=2026)
     parser.add_argument("--batch-size", type=int, default=64)
@@ -243,8 +244,10 @@ def parse_args():
 def select_datasets(args) -> List[str]:
     if args.datasets:
         return args.datasets
-    rng = random.Random(args.seed)
     dataset_names = sorted(DATASET_META.keys())
+    if args.num_datasets is None:
+        return dataset_names
+    rng = random.Random(args.seed)
     n = min(max(args.num_datasets, 1), len(dataset_names))
     return rng.sample(dataset_names, n)
 
